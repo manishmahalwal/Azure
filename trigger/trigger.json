@@ -1,0 +1,24 @@
+{
+	"name": "trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Blob_to_SQL",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/csvtest3108/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/dc46faf1-1f21-492d-9dc7-5e24651110b7/resourceGroups/RG_Azure_ADF/providers/Microsoft.Storage/storageAccounts/sablobstoragemanish",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
