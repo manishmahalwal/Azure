@@ -11,6 +11,9 @@
 		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
+		"trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/dc46faf1-1f21-492d-9dc7-5e24651110b7/resourceGroups/RG_Azure_ADF/providers/Microsoft.Storage/storageAccounts/sablobstoragemanish"
+		},
 		"containerUri": {
 			"value": ""
 		},
