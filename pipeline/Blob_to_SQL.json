@@ -85,7 +85,17 @@
 				"outputs": [
 					{
 						"referenceName": "AzureSqlTable1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"user1": {
+								"value": "@pipeline().parameters.user1",
+								"type": "Expression"
+							},
+							"pass1": {
+								"value": "@pipeline().parameters.pass1",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			},
@@ -231,6 +241,14 @@
 				}
 			}
 		],
+		"parameters": {
+			"user1": {
+				"type": "string"
+			},
+			"pass1": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"lastPublishTime": "2020-09-01T14:52:49Z"
 	},
