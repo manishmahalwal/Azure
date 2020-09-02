@@ -120,7 +120,7 @@
 						]
 					},
 					{
-						"name": "Copy data1",
+						"name": "Copy data",
 						"type": "Copy",
 						"dependsOn": [
 							{
@@ -190,7 +190,7 @@
 						"type": "Delete",
 						"dependsOn": [
 							{
-								"activity": "Copy data1",
+								"activity": "Copy data",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -216,6 +216,33 @@
 								"recursive": true
 							}
 						}
+					},
+					{
+						"name": "exec_sp",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Delete_File",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[usp_create]"
+						},
+						"linkedServiceName": {
+							"referenceName": "AzureSqlDatabase1",
+							"type": "LinkedServiceReference"
+						}
 					}
 				],
 				"annotations": [],
@@ -224,7 +251,8 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlTable1')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText2')]"
+				"[concat(variables('factoryId'), '/datasets/DelimitedText2')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
 			]
 		},
 		{
