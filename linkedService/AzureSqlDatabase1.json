@@ -3,17 +3,17 @@
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"parameters": {
-			"UserName": {
+			"user1": {
 				"type": "string"
 			},
-			"Password": {
+			"pass1": {
 				"type": "string"
 			}
 		},
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=azuresqlserver-manish.database.windows.net;Initial Catalog=DB_AzureManish;User ID=@{linkedService().UserName};Password=@{linkedService().Password}"
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=azuresqlserver-manish.database.windows.net;Initial Catalog=DB_AzureManish;User ID=@{linkedService().user1};Password=@{linkedService().pass1}"
 		}
 	}
 }
