@@ -15,17 +15,28 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
 		},
-		"AzureSqlDatabase2_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://KeyVault-DatabaseDetails.vault.azure.net/"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "Database-Password"
 		},
 		"trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/dc46faf1-1f21-492d-9dc7-5e24651110b7/resourceGroups/RG_Azure_ADF/providers/Microsoft.Storage/storageAccounts/sablobstoragemanish"
 		},
-		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+		"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
 			"type": "string",
-			"defaultValue": "https://KeyVault-DatabaseDetails.vault.azure.net/"
+			"defaultValue": "azuresqlserver-manish.database.windows.net"
+		},
+		"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"type": "string",
+			"defaultValue": "dev"
+		},
+		"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"type": "secureString"
 		},
 		"containerUri": {
 			"type": "string",
@@ -60,14 +71,23 @@
 					"AzureSqlDatabase1_connectionString": {
 						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
 					},
-					"AzureSqlDatabase2_connectionString": {
-						"value": "[parameters('AzureSqlDatabase2_connectionString')]"
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
 					},
 					"trigger_properties_typeProperties_scope": {
 						"value": "[parameters('trigger_properties_typeProperties_scope')]"
 					},
-					"AzureKeyVault1_properties_typeProperties_baseUrl": {
-						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+						"value": "[parameters('integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]"
+					},
+					"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+						"value": "[parameters('integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]"
+					},
+					"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+						"value": "[parameters('integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_connectionString_secretName')]"
 					}
 				}
 			},
